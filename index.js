@@ -1,6 +1,5 @@
 import express from "express";
 import cors from "cors";
-import imageRouter from "./router/imageRouter.js";
 import { db } from "./dbCon.js";
 
 const app = express();
@@ -8,8 +7,6 @@ app.use(express.json());
 app.use(cors());
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
-
-app.use("/", imageRouter);
 
 const port = 8000;
 db.connect((err) => {
